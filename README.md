@@ -1,4 +1,7 @@
 # Transformer Functions
+[![Build Status](https://travis-ci.org/esentri/js-transformer-functions.svg?branch=master)](https://travis-ci.org/esentri/js-transformer-functions)
+[![Coverage Status](https://coveralls.io/repos/github/esentri/js-transformer-functions/badge.svg?branch=master)](https://coveralls.io/github/esentri/js-transformer-functions?branch=master)
+[![npm version](https://badge.fury.io/js/%40esentri%2Ftransformer-functions.svg)](https://badge.fury.io/js/%40esentri%2Ftransformer-functions)
 
 Simple functions for transforming from one data type into another.
 
