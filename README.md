@@ -15,6 +15,18 @@ npm install @esentri/transformer-functions
 yarn add @esentri/transformer-functions
 ```
 
+# Usage
+
+Choose the needed function from the table (left = from, top = to):
+
+|  From \ To  | String              | HexString              | ArrayBuffer            |
+|-------------|---------------------|------------------------|------------------------|
+| String      | -                   | -                      | StringToArrayBuffer    |
+| HexString   | -                   | -                      | HexStringToArrayBuffer |
+| ArrayBuffer | ArrayBufferToString | ArrayBufferToHexString | -                      |
+
+
+
 # Projects used
 
 * [Typescript Library Starter](https://github.com/alexjoverm/typescript-library-starter)
