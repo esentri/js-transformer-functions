@@ -19,12 +19,24 @@ yarn add @esentri/transformer-functions
 
 Choose the needed function from the table (left = from, top = to):
 
-|  From \ To  | String              | HexString              | ArrayBuffer            |
-|-------------|---------------------|------------------------|------------------------|
-| String      | -                   | -                      | StringToArrayBuffer    |
-| HexString   | -                   | -                      | HexStringToArrayBuffer |
-| ArrayBuffer | ArrayBufferToString | ArrayBufferToHexString | -                      |
+|  From \ To  | String | HexString | ArrayBuffer | Base64 | ArrayObject |
+|-------------|--------|-----------|-------------|--------|-------------|
+| String      | -      | X         | X           |   X    | -           |
+| HexString   | X      | -         | X           |   X    | -           |
+| ArrayBuffer | X      | X         | -           |   X    | X           |
+| Base64      | X      | X         | X           |   -    | -           |
+| ArrayObject | -      | -         | X           |   -    | -           |
 
+The corresponding method will be called:
+
+[Type]To[Type]  e.g.: StringToArrayBuffer
+
+NOTE: String, HexString and Base64 are all of type **string**.
+
+## Special Types
+
+**HexString**: A string that contains only hex values (e.g. `68656c6c6f20776f726c64`).
+**ArrayObject**: An object that can be transformed to an array (e.g. `{0: 10, 1: 298, 2: 233}`)
 
 
 # Projects used
