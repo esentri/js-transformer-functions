@@ -1,5 +1,5 @@
 export function StringToArrayBuffer (str: string): ArrayBuffer {
-   return (new Uint8Array([].map.call(str, (x: any) => {
+   return (new Int8Array([].map.call(str, (x: any) => {
       return x.charCodeAt(0)
    }))).buffer as ArrayBuffer
 }

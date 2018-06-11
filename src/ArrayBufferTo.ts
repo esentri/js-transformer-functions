@@ -6,7 +6,7 @@ export function ArrayBufferToHexString (arrayBuffer: ArrayBuffer): string {
 }
 
 export function ArrayBufferToString (arrayBuffer: ArrayBuffer): string {
-   return String.fromCharCode.apply(null, new Uint8Array(arrayBuffer))
+   return String.fromCharCode.apply(null, new Int8Array(arrayBuffer))
 }
 
 export function ArrayBufferToBase64 (arrayBuffer: ArrayBuffer): string {
@@ -14,7 +14,7 @@ export function ArrayBufferToBase64 (arrayBuffer: ArrayBuffer): string {
 }
 
 export function ArrayBufferToArrayObject (arrayBuffer: ArrayBuffer, byteLength: number = 8): string {
-   if (byteLength === 8) return JSON.parse(JSON.stringify(new Uint8Array(arrayBuffer)))
-   if (byteLength === 16) return JSON.parse(JSON.stringify(new Uint16Array(arrayBuffer)))
+   if (byteLength === 8) return JSON.parse(JSON.stringify(new Int8Array(arrayBuffer)))
+   if (byteLength === 16) return JSON.parse(JSON.stringify(new Int16Array(arrayBuffer)))
    throw new Error('Unsupported type length: ' + byteLength)
 }

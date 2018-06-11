@@ -8,7 +8,7 @@ export function ArrayObjectToArrayBuffer (arrayObject: any, byteLength = 8): Arr
       array.push(arrayObject[property])
       index++
    }
-   if (byteLength === 8) return new Uint8Array(array).buffer as ArrayBuffer
-   if (byteLength === 16) return new Uint16Array(array).buffer as ArrayBuffer
+   if (byteLength === 8) return new Int8Array(array).buffer as ArrayBuffer
+   if (byteLength === 16) return new Int16Array(array).buffer as ArrayBuffer
    throw new Error('Unsupported byte length: ' + byteLength)
 }

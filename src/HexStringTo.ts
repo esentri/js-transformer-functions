@@ -6,7 +6,7 @@ export function HexStringToArrayBuffer (str: string): ArrayBuffer {
    for (let i = 0; i < length; i += 2) {
       a.push(parseInt(str.substr(i, 2), 16))
    }
-   return new Uint8Array(a).buffer as ArrayBuffer
+   return new Int8Array(a).buffer as ArrayBuffer
 }
 
 export function HexStringToString (hexString: string): string {
