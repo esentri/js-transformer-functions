@@ -1,8 +1,8 @@
 import {StringToArrayBuffer, StringToHexString} from './StringTo'
+import {Base64} from 'js-base64'
 
 export function Base64ToString (base64: string): string {
-   if (window.atob) return atob(base64)
-   return new Buffer(base64, 'base64').toString('utf8')
+   return Base64.decode(base64)
 }
 
 export function Base64ToHexString (base64: string): string {

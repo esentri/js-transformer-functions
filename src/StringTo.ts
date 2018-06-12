@@ -1,3 +1,5 @@
+import {Base64} from 'js-base64'
+
 export function StringToArrayBuffer (str: string): ArrayBuffer {
    return (new Int8Array([].map.call(str, (x: any) => {
       return x.charCodeAt(0)
@@ -5,8 +7,7 @@ export function StringToArrayBuffer (str: string): ArrayBuffer {
 }
 
 export function StringToBase64 (value: string): string {
-   if (window.btoa) return btoa(value)
-   return Buffer.from(value, 'binary').toString('base64')
+   return Base64.encode(value)
 }
 
 export function StringToHexString (str: string): string {

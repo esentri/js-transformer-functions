@@ -41,6 +41,10 @@ NOTE: String, HexString and Base64 are all of type **string**.
 
 # Projects used
 
+* [js-base64](https://github.com/dankogai/js-base64)
+  * BSD 3-Clause
+  * for de/encoding from/to Base64
+
 * [Typescript Library Starter](https://github.com/alexjoverm/typescript-library-starter)
   * License: MIT
   * as a template for the setup
