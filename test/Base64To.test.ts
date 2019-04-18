@@ -1,6 +1,6 @@
-import {Base64ToArrayBuffer, Base64ToHexString, Base64ToString} from '../src/Base64To'
-import {HelloWorldBase64} from './testData/Base64Strings'
-import {HelloWorldString} from './testData/Strings'
+import {Base64ToArrayBuffer, Base64ToBinaryString, Base64ToHexString, Base64ToString} from '../src/Base64To'
+import {BinaryStringBase64, HelloWorldBase64} from './testData/Base64Strings'
+import {BinaryString, HelloWorldString} from './testData/Strings'
 import {ArrayBufferEqual} from './helper/ArrayBufferFunctions'
 import {ArrayBufferHelloWorld} from './testData/ArrayBuffers'
 import {HelloWorldHex} from './testData/HexStrings'
@@ -10,6 +10,11 @@ describe('base64 to', () => {
    it('string', () => {
       const str = Base64ToString(HelloWorldBase64)
       expect(str).toEqual(HelloWorldString)
+   })
+
+   it('binary string', () => {
+      const str = Base64ToBinaryString(BinaryStringBase64)
+      expect(str).toEqual(BinaryString)
    })
 
    it('to string (without atob)', () => {

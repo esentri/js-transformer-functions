@@ -1,6 +1,6 @@
 {
    "name": "@esentri/transformer-functions",
-   "version": "0.3.5",
+   "version": "0.4.0",
    "description": "transformer functions from one data type into another",
    "keywords": [],
    "main": "dist/transformer-functions.umd.js",
@@ -50,7 +50,9 @@
       "transform": {
          ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
       },
-      "setupFiles": [],
+      "setupFiles": [
+         "./test/jestSetup.js"
+      ],
       "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
       "moduleFileExtensions": [
          "ts",

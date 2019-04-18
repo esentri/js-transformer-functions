@@ -19,19 +19,21 @@ yarn add @esentri/transformer-functions
 
 Choose the needed function from the table (left = from, top = to):
 
-|  From \ To  | String | HexString | ArrayBuffer | Base64 | ArrayObject |
-|-------------|--------|-----------|-------------|--------|-------------|
-| String      | -      | X         | X           |   X    | -           |
-| HexString   | X      | -         | X           |   X    | -           |
-| ArrayBuffer | X      | X         | -           |   X    | X           |
-| Base64      | X      | X         | X           |   -    | -           |
-| ArrayObject | -      | -         | X           |   -    | -           |
+|  From \ To   | String | HexString | ArrayBuffer | Base64 | ArrayObject | BinaryString |
+|--------------|--------|-----------|-------------|--------|-------------|--------------|
+| String       | -      | X         | X           |   X    | -           | -            |
+| HexString    | X      | -         | X           |   X    | -           | -            |
+| ArrayBuffer  | X      | X         | -           |   X    | X           | -            |
+| Base64       | X      | X         | X           |   -    | -           | X            |
+| ArrayObject  | -      | -         | X           |   -    | -           | -            |
+| BinaryString | -      | -         | -           |   X    | -           | -            |
 
 The corresponding method will be called:
 
 [Type]To[Type]  e.g.: StringToArrayBuffer
 
-NOTE: String, HexString and Base64 are all of type **string**.
+NOTE: String, HexString, BinaryString and Base64 are all of type **string**. They differ in the way
+what they represent (and therefor in the way they are handled).
 
 ## Special Types
 
