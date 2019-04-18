@@ -1,9 +1,12 @@
 import {Base64} from 'js-base64'
 
 export function StringToArrayBuffer (str: string): ArrayBuffer {
-   return (new Int8Array([].map.call(str, (x: any) => {
-      return x.charCodeAt(0)
-   }))).buffer as ArrayBuffer
+   let buf = new ArrayBuffer(str.length)
+   let bufView = new Uint8Array(buf)
+   for (let i = 0; i < str.length; i++) {
+      bufView[i] = str.charCodeAt(i)
+   }
+   return buf
 }
 
 export function StringToBase64 (value: string): string {

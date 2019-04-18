@@ -2,10 +2,12 @@ import {ArrayBufferToBase64, ArrayBufferToHexString, ArrayBufferToArrayObject, A
 import {ArrayBuffer_16b_10_11_12, ArrayBuffer_10_11_12, ArrayBufferHelloWorld} from './testData/ArrayBuffers'
 import {HelloWorldHex} from './testData/HexStrings'
 import {HelloWorldBase64} from './testData/Base64Strings'
-import fs from 'fs'
-import {Base64} from 'js-base64'
+import * as fs from 'fs'
 import {Base64ToArrayBuffer} from '../src/Base64To'
-import {ArrayBufferEqual} from "./helper/ArrayBufferFunctions";
+import {ArrayBufferEqual} from './helper/ArrayBufferFunctions'
+import * as path from 'path'
+
+const DIRNAME = path.resolve(path.dirname(''))
 
 describe('ArrayBuffer to', () => {
 
@@ -25,8 +27,8 @@ describe('ArrayBuffer to', () => {
    })
 
    it('base64 as file', () => {
-      let file = fs.readFileSync(__dirname + '/testData/text.txt')
-      let arrayBuffer = new Uint8Array(file).buffer
+      let file = fs.readFileSync(DIRNAME + '/test/testData/text.txt')
+      let arrayBuffer = new Uint8Array(file).buffer as ArrayBuffer
       let base64 = ArrayBufferToBase64(arrayBuffer)
       let decodedArrayBuffer = Base64ToArrayBuffer(base64)
       expect(ArrayBufferEqual(decodedArrayBuffer, arrayBuffer)).toBeTruthy()

@@ -6,7 +6,7 @@ export function ArrayBufferToHexString (arrayBuffer: ArrayBuffer): string {
 }
 
 export function ArrayBufferToString (arrayBuffer: ArrayBuffer): string {
-   let uintArray = new Int8Array(arrayBuffer)
+   let uintArray = new Uint8Array(arrayBuffer)
    let converted: any = []
    uintArray.forEach(function(byte) {
       converted.push(String.fromCharCode(byte))
