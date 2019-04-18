@@ -1,9 +1,14 @@
-import {ArrayBufferToBase64, ArrayBufferToHexString, ArrayBufferToArrayObject, ArrayBufferToString} from '../src/ArrayBufferTo'
+import {
+   ArrayBufferToBase64,
+   ArrayBufferToHexString,
+   ArrayBufferToArrayObject,
+   ArrayBufferToString,
+   ArrayBufferWithBinaryDataToString, Base64ToArrayBuffer, ArrayBufferWithBinaryDataToBase64
+} from '../src/transformer-functions'
 import {ArrayBuffer_16b_10_11_12, ArrayBuffer_10_11_12, ArrayBufferHelloWorld} from './testData/ArrayBuffers'
 import {HelloWorldHex} from './testData/HexStrings'
 import {HelloWorldBase64} from './testData/Base64Strings'
 import * as fs from 'fs'
-import {Base64ToArrayBuffer} from '../src/Base64To'
 import {ArrayBufferEqual} from './helper/ArrayBufferFunctions'
 import * as path from 'path'
 
@@ -21,8 +26,18 @@ describe('ArrayBuffer to', () => {
       expect(str).toBe('hello world')
    })
 
+   it('string (binary)', () => {
+      const str = ArrayBufferWithBinaryDataToString(ArrayBufferHelloWorld)
+      expect(str).toBe('hello world')
+   })
+
    it('base64', () => {
       const base64 = ArrayBufferToBase64(ArrayBufferHelloWorld)
+      expect(base64).toEqual(HelloWorldBase64)
+   })
+
+   it('base64 (binary)', () => {
+      const base64 = ArrayBufferWithBinaryDataToBase64(ArrayBufferHelloWorld)
       expect(base64).toEqual(HelloWorldBase64)
    })
 

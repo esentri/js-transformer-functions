@@ -21,3 +21,7 @@ export function StringToHexString (str: string): string {
    }
    return hexString
 }
+
+export function StringWithBinaryDataToBase64 (value: string): string {
+   return Base64.btoa(value)
+}
