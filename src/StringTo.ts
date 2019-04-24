@@ -1,12 +1,7 @@
 import {Base64} from 'js-base64'
 
-export function StringToArrayBuffer (str: string): ArrayBuffer {
-   let buf = new ArrayBuffer(str.length)
-   let bufView = new Uint8Array(buf)
-   for (let i = 0; i < str.length; i++) {
-      bufView[i] = str.charCodeAt(i)
-   }
-   return buf
+export function StringToArrayBuffer (value: string): ArrayBuffer {
+   return StringToUint8Array(value).buffer
 }
 
 export function StringToBase64 (value: string): string {
@@ -24,4 +19,12 @@ export function StringToHexString (str: string): string {
 
 export function StringWithBinaryDataToBase64 (value: string): string {
    return Base64.btoa(value)
+}
+
+export function StringToUint8Array (value: string) {
+   let uint8Array = new Uint8Array(value.length)
+   for (let i = 0; i < value.length; i++) {
+      uint8Array[i] = value.charCodeAt(i)
+   }
+   return uint8Array
 }

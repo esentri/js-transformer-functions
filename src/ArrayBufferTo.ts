@@ -1,17 +1,17 @@
-import {StringToBase64, StringWithBinaryDataToBase64} from './transformer-functions'
+import {
+   StringToBase64,
+   StringWithBinaryDataToBase64,
+   Uint8ArrayToArrayObject,
+   Uint8ArrayToHexString,
+   Uint8ArrayToString
+} from './transformer-functions'
 
 export function ArrayBufferToHexString (arrayBuffer: ArrayBuffer): string {
-   return Array.from(new Uint8Array(arrayBuffer))
-      .map(x => ('00' + x.toString(16)).slice(-2)).join('')
+   return Uint8ArrayToHexString(ArrayBufferToUint8Array(arrayBuffer))
 }
 
 export function ArrayBufferToString (arrayBuffer: ArrayBuffer): string {
-   let uintArray = new Uint8Array(arrayBuffer)
-   let converted: any = []
-   uintArray.forEach(function (byte) {
-      converted.push(String.fromCharCode(byte))
-   })
-   return converted.join('')
+   return Uint8ArrayToString(ArrayBufferToUint8Array(arrayBuffer))
 }
 
 export function ArrayBufferWithBinaryDataToString (arrayBuffer: ArrayBuffer): string {
@@ -27,7 +27,11 @@ export function ArrayBufferToBase64 (arrayBuffer: ArrayBuffer): string {
 }
 
 export function ArrayBufferToArrayObject (arrayBuffer: ArrayBuffer, byteLength: number = 8): string {
-   if (byteLength === 8) return JSON.parse(JSON.stringify(new Uint8Array(arrayBuffer)))
+   if (byteLength === 8) return Uint8ArrayToArrayObject(ArrayBufferToUint8Array(arrayBuffer))
    if (byteLength === 16) return JSON.parse(JSON.stringify(new Uint16Array(arrayBuffer)))
    throw new Error('Unsupported type length: ' + byteLength)
+}
+
+export function ArrayBufferToUint8Array (arrayBuffer: ArrayBuffer): Uint8Array {
+   return new Uint8Array(arrayBuffer)
 }

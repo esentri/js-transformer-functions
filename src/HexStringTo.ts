@@ -1,4 +1,4 @@
-import {StringToBase64} from './StringTo'
+import {StringToBase64, StringToUint8Array} from './transformer-functions'
 
 export function HexStringToArrayBuffer (str: string): ArrayBuffer {
    let a = []
@@ -20,4 +20,8 @@ export function HexStringToString (hexString: string): string {
 
 export function HexStringToBase64 (hexString: string) {
    return StringToBase64(HexStringToString(hexString))
+}
+
+export function HexStringToUint8Array (hexString: string) {
+   return StringToUint8Array(HexStringToString(hexString))
 }

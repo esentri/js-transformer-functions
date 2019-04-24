@@ -19,14 +19,14 @@ yarn add @esentri/transformer-functions
 
 Choose the needed function from the table (left = from, top = to):
 
-|  From \ To   | String | HexString | ArrayBuffer | Base64 | ArrayObject | BinaryString |
-|--------------|--------|-----------|-------------|--------|-------------|--------------|
-| String       | -      | X         | X           |   X    | -           | -            |
-| HexString    | X      | -         | X           |   X    | -           | -            |
-| ArrayBuffer  | X      | X         | -           |   X    | X           | -            |
-| Base64       | X      | X         | X           |   -    | -           | X            |
-| ArrayObject  | -      | -         | X           |   -    | -           | -            |
-| BinaryString | -      | -         | -           |   X    | -           | -            |
+|  From \ To   | String | HexString | ArrayBuffer | Uint8Array | Base64 | ArrayObject |
+|--------------|--------|-----------|-------------|------------|--------|-------------|
+| String       | -      | X         | X           |   X        |   X    | -           |
+| HexString    | X      | -         | X           |   X        |   X    | -           |
+| ArrayBuffer  | X      | X         | -           |   X        |   X    | X           |
+| Uint8Array   | X      | X         | X           |   -        |   X    | X           |
+| Base64       | X      | X         | X           |   X        |   -    | -           |
+| ArrayObject  | -      | -         | X           |   X        |   -    | -           |
 
 The corresponding method will be called:
 

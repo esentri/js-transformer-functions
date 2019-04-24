@@ -1,7 +1,11 @@
-import {ArrayObjectToArrayBuffer} from '../src/ArrayObjectTo'
-import {ArrayObject_10_11_12, ArrayObjectInconsistent, ArrayObjectHelloWorld} from './testData/ArrayObjects'
+import {ArrayObjectToArrayBuffer, ArrayObjectToUint8Array} from '../src/ArrayObjectTo'
+import {ArrayObject_10_11_12, ArrayObjectInconsistent} from './testData/ArrayObjects'
 import {ArrayBufferEqual} from './helper/ArrayBufferFunctions'
-import {ArrayBuffer_10_11_12, ArrayBuffer_16b_10_11_12, ArrayBufferHelloWorldWithoutSpace} from './testData/ArrayBuffers'
+import {
+   ArrayBuffer_10_11_12,
+   ArrayBuffer_16b_10_11_12,
+   Uint8Array_10_11_12
+} from './testData/ArrayBuffers'
 
 describe('Array object to', () => {
 
@@ -29,6 +33,11 @@ describe('Array object to', () => {
 
    it('ArrayBuffer (inconsistent)', () => {
       expect(() => ArrayObjectToArrayBuffer(ArrayObjectInconsistent)).toThrow()
+   })
+
+   it('Uint8Array', () => {
+      const array = ArrayObjectToUint8Array(ArrayObject_10_11_12)
+      expect(array).toEqual(Uint8Array_10_11_12)
    })
 
 })

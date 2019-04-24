@@ -3,9 +3,9 @@ import {
    ArrayBufferToHexString,
    ArrayBufferToArrayObject,
    ArrayBufferToString,
-   ArrayBufferWithBinaryDataToString, Base64ToArrayBuffer, ArrayBufferWithBinaryDataToBase64
+   ArrayBufferWithBinaryDataToString, Base64ToArrayBuffer, ArrayBufferWithBinaryDataToBase64, ArrayBufferToUint8Array
 } from '../src/transformer-functions'
-import {ArrayBuffer_16b_10_11_12, ArrayBuffer_10_11_12, ArrayBufferHelloWorld} from './testData/ArrayBuffers'
+import {ArrayBuffer_16b_10_11_12, ArrayBuffer_10_11_12, ArrayBufferHelloWorld, Uint8Array_10_11_12} from './testData/ArrayBuffers'
 import {HelloWorldHex} from './testData/HexStrings'
 import {HelloWorldBase64} from './testData/Base64Strings'
 import * as fs from 'fs'
@@ -70,6 +70,11 @@ describe('ArrayBuffer to', () => {
          expect(() => ArrayBufferToArrayObject(ArrayBuffer_16b_10_11_12, byteLength))
             .toThrow()
       }
+   })
+
+   it('Uint8Array', () => {
+      let uint8 = ArrayBufferToUint8Array(ArrayBuffer_10_11_12)
+      expect(uint8).toEqual(Uint8Array_10_11_12)
    })
 
 })

@@ -1,6 +1,6 @@
 {
    "name": "@esentri/transformer-functions",
-   "version": "0.5.0",
+   "version": "0.6.0",
    "description": "transformer functions from one data type into another",
    "keywords": [],
    "main": "dist/transformer-functions.umd.js",

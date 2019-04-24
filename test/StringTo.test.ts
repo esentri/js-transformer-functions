@@ -1,9 +1,10 @@
 import {ArrayBufferEqual} from './helper/ArrayBufferFunctions'
 import {StringToArrayBuffer, StringToBase64, StringToHexString, StringWithBinaryDataToBase64} from '../src/transformer-functions'
-import {ArrayBufferHelloWorld} from './testData/ArrayBuffers'
+import {ArrayBufferHelloWorld, Uint8ArrayHelloWorld} from './testData/ArrayBuffers'
 import {BinaryString, HelloWorldString} from './testData/Strings'
 import {BinaryStringBase64, HelloWorldBase64} from './testData/Base64Strings'
 import {HelloWorldHex} from './testData/HexStrings'
+import {StringToUint8Array} from '../src/StringTo'
 
 describe('string to', () => {
 
@@ -11,6 +12,12 @@ describe('string to', () => {
       const str = 'hello world'
       const arrayBuffer = StringToArrayBuffer(str)
       expect(ArrayBufferEqual(ArrayBufferHelloWorld, arrayBuffer)).toBeTruthy()
+   })
+
+   it('Uint8Array', () => {
+      const str = 'hello world'
+      const array = StringToUint8Array(str)
+      expect(array).toEqual(Uint8ArrayHelloWorld)
    })
 
    it('base64', () => {
